@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Space Quiz Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ <!-- 🌌 Background Video (only on home screen) -->
+<video autoplay muted loop id="bg-video">
+  <source src="assets/space-video.mp4.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+
+ <!-- 🎵 Quiz Background Music (plays only during quiz) -->
+<audio id="quiz-audio" loop>
+  <source src="assets/quiz-audio.mp3" type="audio/mp3">
+</audio>
+
+<!-- 🔊 Sound Effects -->
+<audio id="click-sound" src="assets/click.mp3"></audio>
+<audio id="complete-sound" src="assets/complete.mp3"></audio>
+
+  <!-- 🧠 Main Quiz Box -->
+  <div class="quiz-box">
+    <h2>🧠 Choose a Topic</h2>
+    <div class="topics">
+      <button onclick="startQuiz('science')">Science</button>
+      <button onclick="startQuiz('maths')">Maths</button>
+      <button onclick="startQuiz('biology')">Biology</button>
+      <button onclick="startQuiz('history')">History</button>
+      <button onclick="startQuiz('gk')">General Knowledge</button>
+    </div>
+
+    <div id="question-section" style="display: none;">
+      <p id="question-text"></p>
+      <div id="options"></div>
+      <div id="bottom-row">
+        <span id="timer">⏳ 15s</span>
+        <button onclick="nextQuestion()">
+        Next</button
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+ </body>
+
+</html>

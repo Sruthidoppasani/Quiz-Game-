@@ -1,0 +1,93 @@
+/* Space background */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('assets/space-bg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00f0ff;
+  text-align: center;
+  z-index: 10;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #00bfff;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0080ff;
+}
+.option-btn {
+  margin: 5px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #00bfff;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  background-color: #0080ff;
+}
+
+.quiz-box button {
+  margin-top: 15px;
+  background-color: #4CAF50;
+  font-weight: bold;
+}
+
+.quiz-box button:hover {
+  background-color: #3e8e41;
+}
+/* 🔁 Background Video */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* 💻 Quiz Box Centered */
+.quiz-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00f0ff;
+  text-align: center;
+  z-index: 2;
+}
+/* ⏳ Timer */
+#bottom-row {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#timer {
+  font-weight: bold;
+  color: #333;
+}
+
