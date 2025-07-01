@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Space Quiz Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 🌌 Background Video -->
+  <video autoplay muted loop id="home-video">
+    <source src="assets/space-video.mp4.mp4" type="video/mp4">
+  </video>
+
+  <!-- 🎵 Audio Elements -->
+  <audio id="quiz-audio" loop>
+    <source src="assets/quiz-audio.mp3" type="audio/mp3">
+  </audio>
+  <audio id="click-sound" src="assets/click.mp3"></audio>
+  <audio id="complete-sound" src="assets/complete.mp3"></audio>
+
+  <!-- 📦 Topic Selector Carousel -->
+  <div class="carousel-container">
+    <button class="nav-btn left" onclick="scrollTopics(-1)">&#9664;</button>
+
+    <div class="topics-carousel" id="topics-carousel">
+     <div class="topic-card" style="background-image: url('https://image.freepik.com/free-vector/science-elements-with-test-tubes-molecules_23-2147491185.jpg');">
+      <div class="card-footer">
+    <button onclick="startQuiz('science')">Start</button> 
+  </div>
+</div>
+      <div class="topics-carousel" id="topics-carousel"></div>
+      <div class="topic-card" style="background-image: url('https://i0.wp.com/www.additudemag.com/wp-content/uploads/2021/09/GettyImages-1044168372.jpg');">
+        <div class="card-footer">
+        <button onclick="startQuiz('mathematics')">Start</button>
+      </div>
+    </div>
+      <div class="topics-carousel" id="topics-carousel"></div>
+      <div class="topic-card" style="background-image: url('https://static.vecteezy.com/system/resources/previews/027/013/992/non_2x/biology-doodle-set-collection-of-hand-drawn-elements-science-biology-circle-shape-illustration-isolated-on-a-white-background-vector.jpg');">
+        <div class="card-footer">
+        <button onclick="startQuiz('biology')">Start</button>
+      </div>
+    </div>
+      <div class="topics-carousel" id="topics-carousel"></div>
+      <div class="topic-card button" style="background-image: url('https://blog.udemy.com/wp-content/uploads/2014/05/bigstock-History-56161577.jpg');">
+        <div class="card-footer">
+        <button onclick="startQuiz('history')">Start</button>
+      </div>
+    </div>
+      <div class="topics-carousel" id="topics-carousel"></div>
+      <div class="topic-card" style="background-image: url('https://kj1bcdn.b-cdn.net/media/95588/general-knowledge.png');">
+        <div class="card-footer">
+        <button onclick="startQuiz('gk')">Start</button>
+      </div>
+    </div>
+
+    <button class="nav-btn right" onclick="scrollTopics(1)">&#9654;</button>
+  </div>
+
+  <!-- ✅ Final Audio + Scroll + Quiz Logic -->
+  <script>
+    function scrollTopics(dir) {
+      const container = document.getElementById('topics-carousel');
+      container.scrollBy({ left: dir * 320, behavior: 'smooth' });
+    }
+
+    function startQuiz(topic) {
+      localStorage.setItem("selectedTopic", topic);
+      localStorage.setItem("playAudio", "true");
+
+      const bgMusic = document.getElementById("quiz-audio");
+      if (bgMusic) bgMusic.pause();
+
+      window.location.href = "quiz.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const bgMusic = document.getElementById("quiz-audio");
+
+      const enableAudio = () => {
+        console.log("🔊 Attempting to play audio");
+        bgMusic.volume = 0.4;
+        bgMusic.play()
+          .then(() => console.log("🎵 Audio started"))
+          .catch(err => console.warn("🔇 Audio autoplay blocked:", err));
+        window.removeEventListener("click", enableAudio);
+      };
+
+      // Wait for user to click anywhere
+      window.addEventListener("click", enableAudio);
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
